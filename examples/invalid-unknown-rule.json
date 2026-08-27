@@ -1,0 +1,8 @@
+{
+  "schema_id": "wellmanifest.sch/style/v1",
+  "profile": "invalid-unknown-rule",
+  "title": "Przykład, który MUSI zostać odrzucony: literówka w nazwie reguły",
+  "rules": {
+    "RULE_SCH_WIRE_ORTOGONAL": {"severity": "blocking"}
+  }
+}

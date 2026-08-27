@@ -1,0 +1,176 @@
+{
+  "$schema": "https://wellmanifest.dev/schemas/dsl-manifest/v1",
+  "schema": "wellmanifest.dsl/manifest/v1",
+  "id": "wellmanifest.sch",
+  "name": "Schematic Readability Contract Standard",
+  "version": "1.0.0",
+  "status": "stable",
+  "purpose": "Mierzalny kontrakt czytelności schematu: ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
+  "domain": "electronic-design-automation",
+  "owners": [
+    {
+      "kind": "organization",
+      "id": "wellmanifest",
+      "responsibilities": [
+        "semantics",
+        "validation",
+        "compatibility"
+      ]
+    },
+    {
+      "kind": "repository",
+      "id": "maskservice/viewer",
+      "responsibilities": [
+        "runtime"
+      ]
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/wellmanifest/sch",
+    "path": "sch-standard.json",
+    "declaredVersion": "1.0.0",
+    "canonical": "json-ast",
+    "mediaType": "application/json",
+    "selectors": [
+      "rules",
+      "gates",
+      "boundary",
+      "adopters"
+    ]
+  },
+  "ownedPaths": [
+    "sch-standard.json",
+    "schemas",
+    "examples",
+    "docs"
+  ],
+  "artifacts": [
+    {
+      "path": "sch-standard.json",
+      "role": "normative-source",
+      "digest": "sha256:c8c441c52d46dfe56396ed6a650186ee645045bc6cb5a68631706f7b9c8f42dd"
+    },
+    {
+      "path": "schemas/sch-style.schema.v1.json",
+      "role": "schema",
+      "digest": "sha256:59b05a2f1ad7b2d1f793355777b0210d6b6b0297383d8f88ffb9a2a6dd88b190"
+    },
+    {
+      "path": "examples/default.json",
+      "role": "profile",
+      "digest": "sha256:27ac460798aec669113fb5f3778a07168b7c969136b38b252716b652eba8c8f0"
+    },
+    {
+      "path": "examples/invalid-unknown-rule.json",
+      "role": "example",
+      "digest": "sha256:5b8f3d9ca279aaf4cd9a9af578143e7b3d27788aca2c2a45dcea7ea4f88cabf1"
+    },
+    {
+      "path": "README.md",
+      "role": "documentation",
+      "digest": "sha256:18d5f1149c6e53377eb5c778ba7da1371e604f0b965c1fafc6c87d95e558d007"
+    }
+  ],
+  "namespaces": [
+    {
+      "prefix": "sch",
+      "uri": "https://wellmanifest.com/schemas/sch/"
+    }
+  ],
+  "projections": [
+    {
+      "name": "style-profile",
+      "mediaType": "application/json",
+      "direction": "bidirectional",
+      "lossless": true
+    },
+    {
+      "name": "style-report",
+      "mediaType": "application/json",
+      "direction": "from-canonical",
+      "lossless": false
+    }
+  ],
+  "lifecycle": {
+    "compatibility": "semver",
+    "stability": "stable",
+    "breaking": "major",
+    "additive": "minor",
+    "fix": "patch"
+  },
+  "semantics": {
+    "effectModel": "propose-only",
+    "unknownPolicy": "reject",
+    "authoritySchema": null
+  },
+  "llm": {
+    "mode": "none",
+    "requestSchemas": [],
+    "responseSchemas": [],
+    "naturalLanguage": "forbidden",
+    "sourceSchema": null,
+    "decisionProtocol": "none",
+    "modelAuthority": "none",
+    "strict": true
+  },
+  "documentation": {
+    "vocabularyKind": "documents",
+    "commandRoot": "docs",
+    "errorRoot": "docs/ERROR",
+    "criticalRoot": "docs/CRITICAL",
+    "commands": [],
+    "errorCodes": [],
+    "criticalCodes": []
+  },
+  "findingPolicy": {
+    "schema": "wellmanifest.dsl/findings/v1",
+    "requiredProducers": [
+      "wellmanifest.sch-validator"
+    ],
+    "securityProducers": [
+      "wellmanifest.sch-validator"
+    ],
+    "blockingSeverities": [
+      "error",
+      "critical"
+    ],
+    "requireEvaluable": true,
+    "blockUnresolvedSecurity": true
+  },
+  "publicationPolicy": {
+    "declaredTier": "review",
+    "deterministic": true,
+    "independentReview": true,
+    "externalAuthority": false,
+    "runtimeIsolation": false
+  },
+  "conformance": {
+    "levels": [
+      "manifest",
+      "contract"
+    ],
+    "commands": [
+      "./project.sh check"
+    ],
+    "validExamples": [
+      "examples/default.json"
+    ],
+    "invalidExamples": [
+      "examples/invalid-unknown-rule.json"
+    ]
+  },
+  "mappings": [
+    {
+      "standard": "wellmanifest.dsl/manifest/v1",
+      "version": "1",
+      "relation": "implements",
+      "uri": "https://wellmanifest.dev/schemas/dsl-manifest/v1"
+    },
+    {
+      "standard": "wellmanifest.pcb",
+      "version": "1.3.0",
+      "relation": "compatible-with",
+      "uri": "https://github.com/wellmanifest/pcb"
+    }
+  ]
+}

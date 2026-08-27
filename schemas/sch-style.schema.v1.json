@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellmanifest.com/schemas/sch/style.v1.json",
+  "title": "wellmanifest.sch/style/v1",
+  "description": "Profil czytelności schematu: co znaczy, że rysunek da się przeczytać. Słownik reguł jest zamknięty — nieznana nazwa to błąd profilu, nie reguła po cichu nieaktywna.",
+  "type": "object",
+  "required": [
+    "schema_id"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {
+      "const": "wellmanifest.sch/style/v1"
+    },
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RULE_SCH_WIRE_ORTHOGONAL": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "angles_deg": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "RULE_SCH_WIRE_OVERLAP": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {}
+        },
+        "RULE_SCH_WIRE_SPACING": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "min_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "min_parallel_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "RULE_SCH_WIRE_OVER_SYMBOL": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {}
+        },
+        "RULE_SCH_WIRE_OVER_PIN": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {}
+        },
+        "RULE_SCH_LABEL_SPACING": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "min_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "RULE_SCH_CROSSING_BUDGET": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "max_per_net": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "RULE_SCH_COMMON_GRID": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "grid_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "severity": {
+          "enum": [
+            "blocking",
+            "advisory",
+            "off"
+          ]
+        },
+        "scope": {
+          "const": "schematic"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

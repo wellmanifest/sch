@@ -1,0 +1,117 @@
+{
+  "schema_id": "wellmanifest.sch/standard/v1",
+  "id": "wellmanifest/sch",
+  "version": "1.0.0",
+  "title": "Schematic Readability Contract Standard",
+  "status": "canonical",
+  "standardOwner": "wellmanifest",
+  "placement": {
+    "home": "wellmanifest",
+    "shape": "domain_pack",
+    "adopt": "wellmanifest/sch"
+  },
+  "grammar": {
+    "profile_schema": "wellmanifest.sch/style/v1",
+    "report_schema": "wellmanifest.sch/style-report/v1",
+    "sources": [
+      ".kicad_sch"
+    ],
+    "discovery": [
+      "$WELLMANIFEST_SCH_PROFILE",
+      "<artifacts>/.wellmanifest/sch.json",
+      "<adopter>/profiles/wellmanifest-sch.v1.json"
+    ],
+    "merge": "per-field override on top of the default profile; unknown rule id is an error"
+  },
+  "scopes": [
+    "schematic"
+  ],
+  "severities": [
+    "blocking",
+    "advisory",
+    "off"
+  ],
+  "boundary": {
+    "owns": "czytelność rysunku: ortogonalność, odstępy, nakładanie, skrzyżowania, siatka, rozmieszczenie etykiet",
+    "does_not_own": "prawdziwość netlisty i zgodność z płytką — to należy do wellmanifest/pcb (RULE_PIN_WIRE_GAP, RULE_RAIL_LABEL_CANONICAL, RULE_SIGNAL_LABEL_NAMING, RULE_SCH_PCB_NET_PARITY)",
+    "why": "Rysunek może być nieczytelny przy poprawnej netliście i odwrotnie. Jedno mierzy się geometrią, drugie połączeniami."
+  },
+  "rules": [
+    {
+      "id": "RULE_SCH_WIRE_ORTHOGONAL",
+      "scope": "schematic",
+      "default_severity": "blocking",
+      "measures": "Przewody wyłącznie poziome i pionowe. Skos w schemacie nie niesie informacji, a łamie odczyt."
+    },
+    {
+      "id": "RULE_SCH_WIRE_OVERLAP",
+      "scope": "schematic",
+      "default_severity": "blocking",
+      "measures": "Żadne dwa przewody nie leżą współliniowo jeden na drugim — dwie linie wyglądają wtedy jak jedna."
+    },
+    {
+      "id": "RULE_SCH_WIRE_SPACING",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Równoległe przewody dzieli co najmniej jeden krok siatki; bliżej zlewają się w pasmo."
+    },
+    {
+      "id": "RULE_SCH_WIRE_OVER_SYMBOL",
+      "scope": "schematic",
+      "default_severity": "blocking",
+      "measures": "Przewód nie przechodzi przez korpus symbolu."
+    },
+    {
+      "id": "RULE_SCH_WIRE_OVER_PIN",
+      "scope": "schematic",
+      "default_severity": "blocking",
+      "measures": "Przewód nie przechodzi przez punkt pinu obcej sieci — wyglądałby na połączony."
+    },
+    {
+      "id": "RULE_SCH_LABEL_SPACING",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Etykiety nie nachodzą na siebie; nakładający się tekst jest nie do odczytania."
+    },
+    {
+      "id": "RULE_SCH_CROSSING_BUDGET",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Budżet skrzyżowań na sieć. Przekroczenie znaczy, że rozmieszczenie symboli, a nie trasowanie, jest źródłem bałaganu."
+    },
+    {
+      "id": "RULE_SCH_COMMON_GRID",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Piny i końce przewodów leżą na jednej siatce, choćby przesuniętej. Kilka siatek naraz uniemożliwia równe prowadzenie."
+    }
+  ],
+  "gates": {
+    "candidate_regression": {
+      "rule": "kandydat nie może zwiększyć liczby naruszeń reguły blocking wobec źródła",
+      "codes": [
+        "SCH_STYLE_REGRESSION",
+        "SCH_STYLE_NOT_RUN"
+      ],
+      "inherited_debt": "naruszenie obecne po obu stronach nie blokuje decyzji"
+    },
+    "ordering": [
+      "czytelność (ten pakiet)",
+      "profil PCB",
+      "ERC/DRC",
+      "decyzja człowieka",
+      "promocja"
+    ]
+  },
+  "adopters": [
+    {
+      "id": "maskservice/viewer",
+      "role": "walidator i bramka",
+      "bindings": {
+        "cli": "scripts/schctl.py check",
+        "profile": "app/profiles/wellmanifest-sch.v1.json"
+      }
+    }
+  ],
+  "propose_only": true
+}

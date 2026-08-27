@@ -1,0 +1,66 @@
+{
+  "schema_id": "wellmanifest.sch/style/v1",
+  "id": "wellmanifest/sch",
+  "version": "1.0.0",
+  "profile": "default",
+  "title": "Domyślny profil czytelności schematu",
+  "rules": {
+    "RULE_SCH_WIRE_ORTHOGONAL": {
+      "enabled": true,
+      "severity": "blocking",
+      "scope": "schematic",
+      "angles_deg": [
+        0,
+        90
+      ],
+      "description": "Przewody wyłącznie poziome i pionowe. Skos w schemacie nie niesie informacji, a łamie odczyt."
+    },
+    "RULE_SCH_WIRE_OVERLAP": {
+      "enabled": true,
+      "severity": "blocking",
+      "scope": "schematic",
+      "description": "Żadne dwa przewody nie leżą współliniowo jeden na drugim — dwie linie wyglądają wtedy jak jedna."
+    },
+    "RULE_SCH_WIRE_SPACING": {
+      "enabled": true,
+      "severity": "advisory",
+      "scope": "schematic",
+      "min_mm": 2.54,
+      "min_parallel_mm": 2.0,
+      "description": "Równoległe przewody dzieli co najmniej jeden krok siatki; bliżej zlewają się w pasmo."
+    },
+    "RULE_SCH_WIRE_OVER_SYMBOL": {
+      "enabled": true,
+      "severity": "blocking",
+      "scope": "schematic",
+      "description": "Przewód nie przechodzi przez korpus symbolu."
+    },
+    "RULE_SCH_WIRE_OVER_PIN": {
+      "enabled": true,
+      "severity": "blocking",
+      "scope": "schematic",
+      "description": "Przewód nie przechodzi przez punkt pinu obcej sieci — wyglądałby na połączony."
+    },
+    "RULE_SCH_LABEL_SPACING": {
+      "enabled": true,
+      "severity": "advisory",
+      "scope": "schematic",
+      "min_mm": 1.27,
+      "description": "Etykiety nie nachodzą na siebie; nakładający się tekst jest nie do odczytania."
+    },
+    "RULE_SCH_CROSSING_BUDGET": {
+      "enabled": true,
+      "severity": "advisory",
+      "scope": "schematic",
+      "max_per_net": 8,
+      "description": "Budżet skrzyżowań na sieć. Przekroczenie znaczy, że rozmieszczenie symboli, a nie trasowanie, jest źródłem bałaganu."
+    },
+    "RULE_SCH_COMMON_GRID": {
+      "enabled": true,
+      "severity": "advisory",
+      "scope": "schematic",
+      "grid_mm": 1.27,
+      "description": "Piny i końce przewodów leżą na jednej siatce, choćby przesuniętej. Kilka siatek naraz uniemożliwia równe prowadzenie."
+    }
+  }
+}
