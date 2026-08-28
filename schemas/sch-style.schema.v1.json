@@ -52,6 +52,14 @@
           ],
           "properties": {}
         },
+        "RULE_SCH_DANGLING_WIRE": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {}
+        },
         "RULE_SCH_WIRE_SPACING": {
           "allOf": [
             {

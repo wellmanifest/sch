@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/standard/v1",
   "id": "wellmanifest/sch",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "title": "Schematic Readability Contract Standard",
   "status": "canonical",
   "standardOwner": "wellmanifest",
@@ -49,6 +49,12 @@
       "scope": "schematic",
       "default_severity": "blocking",
       "measures": "Żadne dwa przewody nie leżą współliniowo jeden na drugim — dwie linie wyglądają wtedy jak jedna."
+    },
+    {
+      "id": "RULE_SCH_DANGLING_WIRE",
+      "scope": "schematic",
+      "default_severity": "blocking",
+      "measures": "Końce i gałęzie przewodów, które nie prowadzą do pinu, etykiety ani dalszego przebiegu i pozostały jako puste kreski po zmianie topologii."
     },
     {
       "id": "RULE_SCH_WIRE_SPACING",
@@ -174,6 +180,7 @@
       "changes": "drawing",
       "clears": [
         "RULE_SCH_WIRE_OVERLAP",
+        "RULE_SCH_DANGLING_WIRE",
         "RULE_SCH_WIRE_OVER_SYMBOL",
         "RULE_SCH_WIRE_SPACING",
         "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE",

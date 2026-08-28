@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.0
+
+- `RULE_SCH_DANGLING_WIRE` wykrywa puste ogonki i gałęzie przewodów, które nie
+  kończą się na pinie, etykiecie ani dalszym przebiegu. Takie linie pozostały
+  na panel9 po przeniesieniu czterech sygnałów z GP9–GP12 na boczne GPIO.
+- Reguła jest blokująca: pusta kreska udaje połączenie, choć nie ma terminala.
+  `reroute_wire` może ją usunąć tylko z obowiązkowym `connectivity_preserved`.
+
 ## 1.6.0
 
 - `RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE` rozdziela margines czytelności przy

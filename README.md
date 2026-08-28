@@ -25,6 +25,7 @@ adoptera do przyjęcia obu naraz.
 |---|---|---|
 | `RULE_SCH_WIRE_ORTHOGONAL` | blocking | przewody inne niż poziome i pionowe |
 | `RULE_SCH_WIRE_OVERLAP` | blocking | odcinki leżące współliniowo jeden na drugim |
+| `RULE_SCH_DANGLING_WIRE` | blocking | końce i gałęzie przewodów nieprowadzące do pinu ani etykiety |
 | `RULE_SCH_WIRE_OVER_SYMBOL` | blocking | przewód przechodzący przez korpus symbolu |
 | `RULE_SCH_WIRE_OVER_PIN` | blocking | przewód przechodzący przez pin obcej sieci |
 | `RULE_SCH_WIRE_SPACING` | advisory | równoległe przewody bliżej niż krok siatki |
@@ -58,7 +59,13 @@ krótki odcinek pinu jest dozwolony, ale obcy pień albo magistrala nie może bi
 przez gęsty rząd punktów złącza. Wzorzec wybiera złącza po oznaczeniu i
 identyfikatorze bibliotecznym, a `min_mm` ustala szerokość strefy wyjścia.
 
-Cztery reguły blokujące opisują rzeczy **niejednoznaczne**: dwie linie jedna na
+`RULE_SCH_DANGLING_WIRE` traktuje pin i kotwicę etykiety jako terminale
+widocznego przebiegu. Koniec przewodu bez terminala i bez dalszej gałęzi jest
+pustą kreską: może pozostać po przeniesieniu pinu albo etykiety, choć netlista
+nadal przechodzi dzięki globalnym nazwom. Naprawa usuwa wyłącznie liście bez
+terminali i musi osobno dowieść niezmienności łączności.
+
+Pięć reguł blokujących opisuje rzeczy **niejednoznaczne**: dwie linie jedna na
 drugiej wyglądają jak jedna, przewód przez pin wygląda na połączony. Reguły
 doradcze opisują rzeczy **męczące**: da się przeczytać, tylko trudniej.
 

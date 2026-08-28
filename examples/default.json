@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/style/v1",
   "id": "wellmanifest/sch",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "profile": "default",
   "title": "Domyślny profil czytelności schematu",
   "rules": {
@@ -20,6 +20,12 @@
       "severity": "blocking",
       "scope": "schematic",
       "description": "Żadne dwa przewody nie leżą współliniowo jeden na drugim — dwie linie wyglądają wtedy jak jedna."
+    },
+    "RULE_SCH_DANGLING_WIRE": {
+      "enabled": true,
+      "severity": "blocking",
+      "scope": "schematic",
+      "description": "Każdy koniec przewodu prowadzi do pinu, etykiety albo dalszej gałęzi; puste ogonki po przeniesionych sieciach są błędem."
     },
     "RULE_SCH_WIRE_SPACING": {
       "enabled": true,
