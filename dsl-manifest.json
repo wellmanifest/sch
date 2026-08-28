@@ -68,17 +68,17 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:e02dba2b04a8c372aff2d1f168393432b37deb0c5a26c9ee0da33bba8ef2db0d"
+      "digest": "sha256:927507371da517118cc9bd1b7c3e26b3e9e473fc6b22b8901cccd4b7376f9b9e"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:cbac44f4aa71076615278a0e94b45af482a476c46f61b92187eb2951fb0137ee"
+      "digest": "sha256:a5343511d1d1b9957bb572ad159af0f8be1680b76f42cf6604750ec681a11446"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:37de6f4940965a068937ccf61f93df1f8ed64a5fd6bbbf1b126ddb059fc8b94e"
+      "digest": "sha256:dded13963fc1accbed1dd1283a21a09ed150e805acf5e458989a48bdbbcdaf23"
     },
     {
       "path": "schemas/sch-style.schema.v1.json",

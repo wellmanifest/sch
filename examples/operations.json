@@ -52,6 +52,21 @@
       "why": "Współliniowe nakładanie w KiCadzie nie łączy, więc scalenie takich przewodów byłoby zwarciem — jedyną poprawną naprawą jest inny przebieg przy zachowanych końcach."
     },
     {
+      "id": "drop_redundant_wire",
+      "scope": "schematic",
+      "entity": "wire",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_WIRE_OVERLAP"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Odcinek leżący w całości na innym odcinku tej samej sieci nie niesie żadnego połączenia, którego tamten już nie niesie — a dwie linie na sobie wyglądają jak jedna. To jest zwyrodniały przypadek przetrasowania, w którym nowa trasa ma długość zero, i dlatego ma własną nazwę: usunięcie i przetrasowanie różnią się tym, co trzeba udowodnić."
+    },
+    {
       "id": "move_label",
       "scope": "schematic",
       "entity": "label",

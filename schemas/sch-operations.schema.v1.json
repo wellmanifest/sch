@@ -41,6 +41,7 @@
             "draw_net_wires",
             "snap_to_common_grid",
             "reroute_wire",
+            "drop_redundant_wire",
             "move_label"
           ]
         },

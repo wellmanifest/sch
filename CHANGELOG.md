@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0
+
+- `drop_redundant_wire`: odcinek leżący **w całości** na innym odcinku tej samej
+  sieci nie niesie żadnego połączenia, którego tamten już nie niesie — a dwie
+  linie na sobie wyglądają jak jedna.
+- Ma własną nazwę zamiast być przypadkiem `reroute_wire`, bo usunięcie
+  i przetrasowanie różnią się tym, co trzeba udowodnić. Przetrasowanie zachowuje
+  końce i zmienia przebieg; usunięcie musi wykazać, że przebiegu w ogóle nie było
+  potrzeba. Obie drogi kończą się tym samym warunkiem `connectivity_preserved`,
+  ale z innego powodu.
+- Na referencyjnym panel9 zamyka jedyne blokujące naruszenie schematu: pionowy
+  zjazd sieci `ENC_A` skręcał w lewo i biegł 0,8 mm po istniejącym przewodzie.
+
 ## 1.1.0
 
 - **Zamknięty słownik operacji**: `draw_net_wires`, `snap_to_common_grid`,
