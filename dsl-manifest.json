@@ -68,12 +68,12 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:b8bd0d0d930b8175ac339576878b995f8d2f59e0ddf668aaffa82e7c76730c73"
+      "digest": "sha256:28d349a70929b24fec18a63f68b714d6907b643b8c736c0e230fc05480b9b1db"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:bd1e223e8136fcbd3f2af00a193835981b058649f60ab7b627c703f6318ef5f5"
+      "digest": "sha256:ed6a9f72f04a6469092c16166c1670095a3cb46df1562d92e4a871b8ad7141ff"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",

@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.1
+
+- `reroute_wire` niesie teraz zmierzone ostrzeżenie: przy gęstym rozmieszczeniu
+  symboli innego przebiegu przy zachowanych końcach zwykle **nie ma**. Na
+  referencyjnym panel9 trasowanie pojedynczych przewodów routerem schodkowym
+  pogorszyło wynik (38 → 41 naruszeń, blokujących 8 → 9) i zmieniło netlistę,
+  mimo nietykalnych końców.
+- Wniosek jest zgodny z tym, co mówi sama `RULE_SCH_CROSSING_BUDGET`: gdy budżet
+  skrzyżowań jest przekroczony, źródłem bałaganu jest rozmieszczenie symboli,
+  a nie trasy — i wtedy `reroute_wire` nie jest właściwym narzędziem. Opis
+  operacji ma o tym mówić, zanim ktoś napisze drugie takie narzędzie.
+
 ## 1.3.0
 
 - `RULE_SCH_NET_PRESENTATION` mierzy wielopunktowe sieci sygnałowe pokazane

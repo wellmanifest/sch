@@ -50,7 +50,7 @@
         "style_no_regression"
       ],
       "reversible": true,
-      "why": "Współliniowe nakładanie w KiCadzie nie łączy, więc scalenie takich przewodów byłoby zwarciem — jedyną poprawną naprawą jest inny przebieg przy zachowanych końcach."
+      "why": "Współliniowe nakładanie w KiCadzie nie łączy, więc scalenie takich przewodów byłoby zwarciem — jedyną naprawą przez trasowanie jest inny przebieg przy zachowanych końcach. Uwaga zmierzona na panel9: przy gęstym rozmieszczeniu symboli takiego przebiegu zwykle **nie ma**. Trasowanie pojedynczych przewodów routerem schodkowym pogorszyło tam wynik (38 → 41 naruszeń, blokujących 8 → 9) i zmieniło netlistę, mimo nietykalnych końców. Gdy `RULE_SCH_CROSSING_BUDGET` jest przekroczony, źródłem bałaganu jest rozmieszczenie symboli, nie trasy — i wtedy ta operacja nie jest właściwym narzędziem."
     },
     {
       "id": "drop_redundant_wire",
