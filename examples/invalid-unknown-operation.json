@@ -1,0 +1,22 @@
+{
+  "schema_id": "wellmanifest.sch/operations/v1",
+  "operations": [
+    {
+      "id": "redraw_everything",
+      "scope": "schematic",
+      "entity": "wire",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_WIRE_ORTHOGONAL",
+        "RULE_SCH_WIRE_OVER_SYMBOL",
+        "RULE_SCH_WIRE_OVER_PIN"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Schemat łączony samymi etykietami jest poprawny i nieczytelny: żeby zobaczyć, co z czym się łączy, trzeba czytać nazwy zamiast patrzeć."
+    }
+  ]
+}

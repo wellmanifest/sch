@@ -67,6 +67,57 @@ def _check_dsl_manifest() -> None:
     print("✔ dsl-manifest.json zgodny z wellmanifest.dsl/manifest/v1")
 
 
+def _check_operations(standard: dict, rule_ids: set[str]) -> None:
+    """Zamknięty słownik zmian — druga połowa kontraktu obok słownika reguł.
+
+    Reguły mówią, co czyni rysunek nieczytelnym; operacje mówią, co wolno z tym
+    zrobić. Bez zamknięcia tej listy każde narzędzie wymyśla własny czasownik
+    zmiany i „ta sama poprawka" znaczy co innego w powłoce, w REST i w MCP.
+    """
+    schema_path = ROOT / "schemas" / "sch-operations.schema.v1.json"
+    example_path = ROOT / "examples" / "operations.json"
+    if not (schema_path.is_file() and example_path.is_file()):
+        _fail("brak schematu albo przykładu słownika operacji")
+    schema = _load(schema_path)
+    declared = {item["id"] for item in standard.get("operations") or []}
+    if not declared:
+        _fail("standard nie deklaruje żadnej operacji")
+    enum = set(schema["$defs"]["operation"]["properties"]["id"]["enum"])
+    if enum != declared:
+        _fail(f"słownik operacji rozjechany: {sorted(enum ^ declared)}")
+    verifications = {item["id"] for item in standard.get("verifications") or []}
+    for operation in standard["operations"]:
+        unknown = [name for name in operation["clears"] if name not in rule_ids]
+        if unknown:
+            _fail(f"operacja {operation['id']} zamyka nieznaną regułę {unknown[0]}")
+        outside = [name for name in operation["verify"] if name not in verifications]
+        if outside:
+            _fail(f"operacja {operation['id']} żąda nieznanej weryfikacji {outside[0]}")
+        if "connectivity_preserved" not in operation["verify"]:
+            _fail(
+                f"operacja {operation['id']} zmienia rysunek, a nie żąda dowodu, "
+                "że netlista została ta sama"
+            )
+    print(f"✔ zamknięty słownik operacji zgodny ({len(declared)} operacji)")
+
+    document = _load(example_path)
+    if document.get("operations") != standard["operations"]:
+        _fail("examples/operations.json rozjechany ze standardem")
+    try:
+        from jsonschema import Draft202012Validator
+    except ImportError:
+        return
+    validator = Draft202012Validator(schema)
+    errors = sorted(validator.iter_errors(document), key=lambda item: list(item.path))
+    if errors:
+        _fail(f"examples/operations.json: {errors[0].message}")
+    print("✔ examples/operations.json zgodny z wellmanifest.sch/operations/v1")
+    negative = ROOT / "examples" / "invalid-unknown-operation.json"
+    if negative.is_file() and not list(validator.iter_errors(_load(negative))):
+        _fail("examples/invalid-unknown-operation.json przechodzi walidację, a nie powinien")
+    print("✔ nieznana operacja jest błędem, nie operacją nieaktywną")
+
+
 def main() -> int:
     if "--refresh-digests" in sys.argv:
         return refresh_digests()
@@ -93,7 +144,7 @@ def main() -> int:
 
     severities = set(standard["severities"])
     for path in sorted((ROOT / "examples").glob("*.json")):
-        if path.name.startswith("invalid"):
+        if path.name.startswith("invalid") or "operations" in path.name:
             continue
         document = _load(path)
         if validator is not None:
@@ -116,6 +167,8 @@ def main() -> int:
         if validator is not None and not list(validator.iter_errors(document)):
             _fail("examples/invalid-unknown-rule.json przechodzi walidację, a nie powinien")
         print(f"✔ przykład negatywny odrzucony ({unknown[0]})")
+
+    _check_operations(standard, standard_rules)
 
     _check_dsl_manifest()
 

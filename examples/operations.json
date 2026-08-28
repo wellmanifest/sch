@@ -1,0 +1,69 @@
+{
+  "schema_id": "wellmanifest.sch/operations/v1",
+  "operations": [
+    {
+      "id": "draw_net_wires",
+      "scope": "schematic",
+      "entity": "wire",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_WIRE_ORTHOGONAL",
+        "RULE_SCH_WIRE_OVER_SYMBOL",
+        "RULE_SCH_WIRE_OVER_PIN"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Schemat łączony samymi etykietami jest poprawny i nieczytelny: żeby zobaczyć, co z czym się łączy, trzeba czytać nazwy zamiast patrzeć."
+    },
+    {
+      "id": "snap_to_common_grid",
+      "scope": "schematic",
+      "entity": "symbol",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_COMMON_GRID"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Symbole pod różnymi przesunięciami względem siatki dają rysunek, który wygląda na odręczny, i każda kolejna zmiana to pogłębia."
+    },
+    {
+      "id": "reroute_wire",
+      "scope": "schematic",
+      "entity": "wire",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_WIRE_OVERLAP",
+        "RULE_SCH_WIRE_OVER_SYMBOL",
+        "RULE_SCH_WIRE_SPACING",
+        "RULE_SCH_CROSSING_BUDGET"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Współliniowe nakładanie w KiCadzie nie łączy, więc scalenie takich przewodów byłoby zwarciem — jedyną poprawną naprawą jest inny przebieg przy zachowanych końcach."
+    },
+    {
+      "id": "move_label",
+      "scope": "schematic",
+      "entity": "label",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_LABEL_SPACING"
+      ],
+      "verify": [
+        "connectivity_preserved"
+      ],
+      "reversible": true,
+      "why": "Nakładający się tekst jest nie do odczytania, a etykieta w tym schemacie jest połączeniem, więc jej kotwica musi zostać na pinie."
+    }
+  ]
+}

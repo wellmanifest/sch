@@ -46,14 +46,9 @@
   ],
   "artifacts": [
     {
-      "path": "sch-standard.json",
-      "role": "normative-source",
-      "digest": "sha256:c8c441c52d46dfe56396ed6a650186ee645045bc6cb5a68631706f7b9c8f42dd"
-    },
-    {
-      "path": "schemas/sch-style.schema.v1.json",
-      "role": "schema",
-      "digest": "sha256:59b05a2f1ad7b2d1f793355777b0210d6b6b0297383d8f88ffb9a2a6dd88b190"
+      "path": "README.md",
+      "role": "documentation",
+      "digest": "sha256:18d5f1149c6e53377eb5c778ba7da1371e604f0b965c1fafc6c87d95e558d007"
     },
     {
       "path": "examples/default.json",
@@ -61,14 +56,34 @@
       "digest": "sha256:27ac460798aec669113fb5f3778a07168b7c969136b38b252716b652eba8c8f0"
     },
     {
+      "path": "examples/invalid-unknown-operation.json",
+      "role": "example",
+      "digest": "sha256:c3bf7a6f1c1ee7b71b9bb995155ce74d81aff65a8685f9df4622664297cca208"
+    },
+    {
       "path": "examples/invalid-unknown-rule.json",
       "role": "example",
       "digest": "sha256:5b8f3d9ca279aaf4cd9a9af578143e7b3d27788aca2c2a45dcea7ea4f88cabf1"
     },
     {
-      "path": "README.md",
-      "role": "documentation",
-      "digest": "sha256:18d5f1149c6e53377eb5c778ba7da1371e604f0b965c1fafc6c87d95e558d007"
+      "path": "examples/operations.json",
+      "role": "example",
+      "digest": "sha256:e02dba2b04a8c372aff2d1f168393432b37deb0c5a26c9ee0da33bba8ef2db0d"
+    },
+    {
+      "path": "sch-standard.json",
+      "role": "normative-source",
+      "digest": "sha256:cbac44f4aa71076615278a0e94b45af482a476c46f61b92187eb2951fb0137ee"
+    },
+    {
+      "path": "schemas/sch-operations.schema.v1.json",
+      "role": "schema",
+      "digest": "sha256:37de6f4940965a068937ccf61f93df1f8ed64a5fd6bbbf1b126ddb059fc8b94e"
+    },
+    {
+      "path": "schemas/sch-style.schema.v1.json",
+      "role": "schema",
+      "digest": "sha256:59b05a2f1ad7b2d1f793355777b0210d6b6b0297383d8f88ffb9a2a6dd88b190"
     }
   ],
   "namespaces": [

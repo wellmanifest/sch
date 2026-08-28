@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wellmanifest.dev/schemas/sch/sch-operations.schema.v1.json",
+  "title": "Zamknięty słownik zmian czytelności schematu",
+  "description": "Reguły mówią, co czyni rysunek nieczytelnym. Ten słownik mówi, co wolno z tym zrobić. Każda operacja tutaj zmienia wyłącznie geometrię rysunku i musi udowodnić, że netlista została ta sama — inaczej poprawa czytelności byłaby przerysowaniem układu pod pozorem porządków.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "operations"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "wellmanifest.sch/operations/v1"
+    },
+    "operations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/operation"
+      }
+    }
+  },
+  "$defs": {
+    "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "scope",
+        "entity",
+        "changes",
+        "clears",
+        "verify",
+        "reversible",
+        "why"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "draw_net_wires",
+            "snap_to_common_grid",
+            "reroute_wire",
+            "move_label"
+          ]
+        },
+        "scope": {
+          "const": "schematic"
+        },
+        "entity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changes": {
+          "enum": [
+            "drawing"
+          ]
+        },
+        "clears": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^RULE_SCH_[A-Z0-9_]+$"
+          }
+        },
+        "verify": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "connectivity_preserved",
+              "style_no_regression"
+            ]
+          }
+        },
+        "reversible": {
+          "const": true
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
