@@ -36,10 +36,12 @@ adoptera do przyjęcia obu naraz.
 | `RULE_SCH_CROSSING_BUDGET` | advisory | skrzyżowania ponad budżet na sieć |
 | `RULE_SCH_COMMON_GRID` | advisory | piny i końce przewodów na kilku różnych siatkach |
 
-Nowa reguła prezentacji odróżnia poprawność elektryczną od czytelności: globalne
+Reguła prezentacji odróżnia poprawność elektryczną od czytelności: globalne
 etykiety nadal tworzą jedną sieć w netliście, ale projekt może wymagać pokazania
 przynajmniej fragmentu sieci sygnałowej przewodem. Szyny zasilania można wyłączyć
-przez `exclude_pattern`, a próg ustawia `max_label_only_nets`.
+przez `exclude_pattern`, a próg ustawia `max_label_only_nets`. Dla sieci
+wymienionych w `require_all_anchors_for` wszystkie kotwice muszą należeć do
+jednego widocznego komponentu przewodów — sama powtórzona nazwa nie wystarcza.
 
 `RULE_SCH_SHARED_RAIL_PRESENTATION` osobno obejmuje szyny wyłączone z powyższej
 reguły. Dla regularnego skupiska, np. rzędu mikroswitchy, preferuje jeden wspólny
@@ -92,7 +94,10 @@ dług, który zostaje po automatycznym trasowaniu.
   "rules": {
     "RULE_SCH_WIRE_SPACING": {"min_mm": 2.54},
     "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE": {"min_mm": 2.54},
-    "RULE_SCH_NET_PRESENTATION": {"max_label_only_nets": 0},
+    "RULE_SCH_NET_PRESENTATION": {
+      "max_label_only_nets": 0,
+      "require_all_anchors_for": ["ENC_A", "ENC_B", "ENC_SW"]
+    },
     "RULE_SCH_SHARED_RAIL_PRESENTATION": {"min_anchors": 3},
     "RULE_SCH_CROSSING_BUDGET": {"severity": "advisory", "max_per_net": 8}
   }
@@ -104,6 +109,15 @@ zamkniętego słownika kończy się błędem wczytania — nigdy regułą po cic
 
 Kolejność wyszukiwania: `$WELLMANIFEST_SCH_PROFILE`,
 `<artefakty>/.wellmanifest/sch.json`, profil domyślny adoptera.
+
+## Placement jest operacją DSL
+
+Przekroczony `RULE_SCH_CROSSING_BUDGET` może oznaczać, że przy zachowanych
+końcach nie istnieje lepsza trasa. `move_symbol` jest wtedy właściwym prymitywem:
+przesuwa symbol (lub kolejne symbole planowanego bloku), a adopter odbudowuje
+tylko odcinki dochodzące do jego pinów. Wynik jest kandydatem i musi przejść
+`connectivity_preserved` oraz `style_no_regression`; sama mniejsza liczba
+skrzyżowań nie legalizuje zmiany netlisty ani nowej pustej linii.
 
 ## Bramka
 

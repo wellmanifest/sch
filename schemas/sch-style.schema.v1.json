@@ -141,6 +141,14 @@
             "exclude_pattern": {
               "type": "string",
               "format": "regex"
+            },
+            "require_all_anchors_for": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           }
         },

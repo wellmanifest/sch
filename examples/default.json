@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/style/v1",
   "id": "wellmanifest/sch",
-  "version": "1.7.0",
+  "version": "1.9.0",
   "profile": "default",
   "title": "Domyślny profil czytelności schematu",
   "rules": {
@@ -69,7 +69,8 @@
       "min_anchors": 2,
       "max_label_only_nets": 0,
       "exclude_pattern": "^(GND|\\+[0-9]+V[0-9]*)$",
-      "description": "Wielopunktowa sieć sygnałowa nie może istnieć na rysunku wyłącznie jako powtórzona etykieta globalna; co najmniej jeden jej fragment ma być pokazany przewodem."
+      "require_all_anchors_for": [],
+      "description": "Wielopunktowa sieć sygnałowa nie może istnieć na rysunku wyłącznie jako powtórzona etykieta globalna; co najmniej jeden jej fragment ma być pokazany przewodem. Sieci wymienione w require_all_anchors_for muszą dodatkowo łączyć widoczną linią wszystkie swoje kotwice."
     },
     "RULE_SCH_SHARED_RAIL_PRESENTATION": {
       "enabled": true,

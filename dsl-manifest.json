@@ -3,7 +3,7 @@
   "schema": "wellmanifest.dsl/manifest/v1",
   "id": "wellmanifest.sch",
   "name": "Schematic Readability Contract Standard",
-  "version": "1.7.1",
+  "version": "1.9.0",
   "status": "stable",
   "purpose": "Mierzalny kontrakt czytelności schematu: prezentacja sieci, ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
   "domain": "electronic-design-automation",
@@ -28,7 +28,7 @@
   "source": {
     "repository": "https://github.com/wellmanifest/sch",
     "path": "sch-standard.json",
-    "declaredVersion": "1.7.0",
+    "declaredVersion": "1.9.0",
     "canonical": "json-ast",
     "mediaType": "application/json",
     "selectors": [
@@ -48,12 +48,12 @@
     {
       "path": "README.md",
       "role": "documentation",
-      "digest": "sha256:575f4df0fb482f7400b711f250f40e2aeead2fdc3f3690c96652311772dc22c1"
+      "digest": "sha256:70a133b4248471e2e828a3b25b5dd8ccb56198a8b9a7808258e031d0ca29fd96"
     },
     {
       "path": "examples/default.json",
       "role": "profile",
-      "digest": "sha256:141b88e535016b96c03800f871fad9ea73e564c9ea9ce6036fde48747d5deed2"
+      "digest": "sha256:8e2da8a391e04ba5dc1e3ef16d3d7816eafa55282f5fda5c96391d370d115b5a"
     },
     {
       "path": "examples/invalid-unknown-operation.json",
@@ -68,22 +68,22 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:83bdf0454ebeab30b7f06d53f564c63322dfc4c762ea3a240909fb6a60006ea6"
+      "digest": "sha256:7b5db16a22fb3466cab7899b4c0213e5f0b7028626c854b1639d824fa5d88d13"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:36ed6876126703e91c4c547a6cb98e6c19df53d34267c66a2547fbcf5ff9bd48"
+      "digest": "sha256:e3b65be8a810499931efe27e77f239591b8f407cd817567c3196b92c350ad7b4"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:208eed3f3af1168ca926a47995df588a1e0437792dc2c0c95ce3b9981e99eca8"
+      "digest": "sha256:3e31b92134b90537f0b4e18aa977daec0b72e95a7a014bfd1e8a1382bdf33045"
     },
     {
       "path": "schemas/sch-style.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:85afea3103c8b77df580aebe7f3521f977567ee947e3beeb20c95d13203ae70a"
+      "digest": "sha256:0e1f308c62d4c1a6843362d27745a561c897a381459d8c109dcf7125acf57da1"
     }
   ],
   "namespaces": [

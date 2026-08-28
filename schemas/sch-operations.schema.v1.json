@@ -40,6 +40,7 @@
           "enum": [
             "draw_net_wires",
             "snap_to_common_grid",
+            "move_symbol",
             "reroute_wire",
             "drop_redundant_wire",
             "move_label",

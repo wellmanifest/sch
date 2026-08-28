@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.9.0
+
+- `move_symbol` nazywa brakującą operację placementu: przesuwa symbol przed
+  routingiem i odbudowuje wyłącznie przewody dochodzące do jego pinów.
+- Operacja zamyka dług spacingu, clearance przy złączach, skrzyżowań i siatki,
+  ale obowiązkowo zachowuje netlistę i nie może pogorszyć żadnej reguły stylu.
+- To bezpośrednia konsekwencja pomiaru `reroute_wire` 38 → 41: gdy końce nie
+  dostają nowego korytarza, routing nie naprawia błędnego placementu.
+
+## 1.8.0
+
+- `RULE_SCH_NET_PRESENTATION.require_all_anchors_for` pozwala wskazać sieci,
+  których wszystkie kotwice muszą należeć do jednego widocznego komponentu
+  przewodów. Powtórzone globalne etykiety nadal zachowują netlistę, ale nie
+  zaliczają jawnego wymagania czytelnego połączenia punkt-punkt.
+
 ## 1.7.1
 
 - Wskazówka do `collapse_redundant_labels`: etykieta trzymająca wolny koniec

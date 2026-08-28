@@ -35,6 +35,24 @@
       "why": "Symbole pod różnymi przesunięciami względem siatki dają rysunek, który wygląda na odręczny, i każda kolejna zmiana to pogłębia."
     },
     {
+      "id": "move_symbol",
+      "scope": "schematic",
+      "entity": "symbol",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_WIRE_SPACING",
+        "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE",
+        "RULE_SCH_CROSSING_BUDGET",
+        "RULE_SCH_COMMON_GRID"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Gdy skrzyżowania wynikają z położenia bloków, samo szukanie innego przebiegu zachowującego te same końce nie tworzy nowego korytarza. Symbol trzeba przesunąć przed routingiem, a przewody jego pinów odbudować bez zmiany netlisty."
+    },
+    {
       "id": "reroute_wire",
       "scope": "schematic",
       "entity": "wire",
