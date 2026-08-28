@@ -3,7 +3,7 @@
   "schema": "wellmanifest.dsl/manifest/v1",
   "id": "wellmanifest.sch",
   "name": "Schematic Readability Contract Standard",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "status": "stable",
   "purpose": "Mierzalny kontrakt czytelności schematu: prezentacja sieci, ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
   "domain": "electronic-design-automation",
@@ -48,12 +48,12 @@
     {
       "path": "README.md",
       "role": "documentation",
-      "digest": "sha256:fedc72668849da8794e0293135a1a0909529f36d4c9324634c348f76e03e513f"
+      "digest": "sha256:237629fcf9a665d9ae4aac1a0b134cfcb3196bc24504c3222adc9abcb1e9f11a"
     },
     {
       "path": "examples/default.json",
       "role": "profile",
-      "digest": "sha256:b5eccc1eeaeb20d357e1567c1b33201f84b983901b41ec92c03e601b5a824657"
+      "digest": "sha256:93dfde45dc0eb9fe50469d57e900fd6af986e70fdb2e238fc0d035e50a9a78de"
     },
     {
       "path": "examples/invalid-unknown-operation.json",
@@ -68,12 +68,12 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:4bd2c60e86ffaa672a42345f8e72df2b9f2981cb8555182c82122e92e6ec9831"
+      "digest": "sha256:95cbb563298129f6d317c615fe75a1c62c99feb83aa41483f6f27df2095ad5e9"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:7e030d87fe626ad917e5db21f22a32a65cf5be26ef8e52c7c41b83c8911d5f55"
+      "digest": "sha256:48eb319bcf7ebd358740a5ae4a52b63439b0201db20fb0bddef4619eeecd259c"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",
@@ -83,7 +83,7 @@
     {
       "path": "schemas/sch-style.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:d9a69669e42dd8e61e1a8af462470ce52a03a54315657ab7f97c67058650561a"
+      "digest": "sha256:b3e6d4a38378c1711c04b1fff79652f9195f1e7de8f4e595e0daf7c372ca59dd"
     }
   ],
   "namespaces": [

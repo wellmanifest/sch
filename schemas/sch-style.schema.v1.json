@@ -69,6 +69,23 @@
             }
           }
         },
+        "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "connector_pattern": {
+              "type": "string",
+              "format": "regex"
+            },
+            "min_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
         "RULE_SCH_WIRE_OVER_SYMBOL": {
           "allOf": [
             {

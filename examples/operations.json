@@ -43,6 +43,7 @@
         "RULE_SCH_WIRE_OVERLAP",
         "RULE_SCH_WIRE_OVER_SYMBOL",
         "RULE_SCH_WIRE_SPACING",
+        "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE",
         "RULE_SCH_CROSSING_BUDGET"
       ],
       "verify": [

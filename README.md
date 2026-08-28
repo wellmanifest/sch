@@ -28,6 +28,7 @@ adoptera do przyjęcia obu naraz.
 | `RULE_SCH_WIRE_OVER_SYMBOL` | blocking | przewód przechodzący przez korpus symbolu |
 | `RULE_SCH_WIRE_OVER_PIN` | blocking | przewód przechodzący przez pin obcej sieci |
 | `RULE_SCH_WIRE_SPACING` | advisory | równoległe przewody bliżej niż krok siatki |
+| `RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE` | advisory | nieincydentne przewody w strefie wyjścia pinów złącza |
 | `RULE_SCH_LABEL_SPACING` | advisory | nachodzące na siebie etykiety |
 | `RULE_SCH_NET_PRESENTATION` | advisory | wielopunktowe sieci sygnałowe pokazane wyłącznie etykietami |
 | `RULE_SCH_SHARED_RAIL_PRESENTATION` | advisory | skupiska wspólnej szyny pokazane powtórzonym tekstem zamiast widocznym pniem |
@@ -49,6 +50,13 @@ Po narysowaniu wspólnego przebiegu `collapse_redundant_labels` może zostawić 
 jednej etykiecie nazwy na fizyczny komponent. Najpierw rozcina pień w punktach T;
 sama widoczna kropka nie jest dowodem łączności. Komponenty z różnymi nazwami są
 pomijane, a identyczność netlisty jest obowiązkową bramką kandydata.
+
+`RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE` nie zastępuje elektrycznej
+`RULE_PIN_WIRE_GAP`. Ta druga wykrywa przewód, który kończy się tuż obok pinu i
+go nie łączy. Reguła czytelności mierzy coś odwrotnego: poprawnie podłączony,
+krótki odcinek pinu jest dozwolony, ale obcy pień albo magistrala nie może biec
+przez gęsty rząd punktów złącza. Wzorzec wybiera złącza po oznaczeniu i
+identyfikatorze bibliotecznym, a `min_mm` ustala szerokość strefy wyjścia.
 
 Cztery reguły blokujące opisują rzeczy **niejednoznaczne**: dwie linie jedna na
 drugiej wyglądają jak jedna, przewód przez pin wygląda na połączony. Reguły
@@ -76,6 +84,7 @@ dług, który zostaje po automatycznym trasowaniu.
   "profile": "panel9",
   "rules": {
     "RULE_SCH_WIRE_SPACING": {"min_mm": 2.54},
+    "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE": {"min_mm": 2.54},
     "RULE_SCH_NET_PRESENTATION": {"max_label_only_nets": 0},
     "RULE_SCH_SHARED_RAIL_PRESENTATION": {"min_anchors": 3},
     "RULE_SCH_CROSSING_BUDGET": {"severity": "advisory", "max_per_net": 8}

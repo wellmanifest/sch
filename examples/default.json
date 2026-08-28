@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/style/v1",
   "id": "wellmanifest/sch",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "profile": "default",
   "title": "Domyślny profil czytelności schematu",
   "rules": {
@@ -28,6 +28,14 @@
       "min_mm": 2.54,
       "min_parallel_mm": 2.0,
       "description": "Równoległe przewody dzieli co najmniej jeden krok siatki; bliżej zlewają się w pasmo."
+    },
+    "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE": {
+      "enabled": true,
+      "severity": "advisory",
+      "scope": "schematic",
+      "connector_pattern": "(?:^|:)(?:CONN|CONNECTOR|HEADER|RJ|USB|JACK)",
+      "min_mm": 2.54,
+      "description": "Przy złączu tylko krótki odcinek incydentny może dotykać pinu; magistrale i pionowe pnie pozostają co najmniej jeden krok siatki od pozostałych pinów."
     },
     "RULE_SCH_WIRE_OVER_SYMBOL": {
       "enabled": true,

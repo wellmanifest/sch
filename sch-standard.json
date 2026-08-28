@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/standard/v1",
   "id": "wellmanifest/sch",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "title": "Schematic Readability Contract Standard",
   "status": "canonical",
   "standardOwner": "wellmanifest",
@@ -55,6 +55,12 @@
       "scope": "schematic",
       "default_severity": "advisory",
       "measures": "Równoległe przewody dzieli co najmniej jeden krok siatki; bliżej zlewają się w pasmo."
+    },
+    {
+      "id": "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Strefę wyjścia ze złącza: poza własnym krótkim odcinkiem pinu żaden przewód nie biegnie bliżej niż zadany margines od punktów pinów złącza."
     },
     {
       "id": "RULE_SCH_WIRE_OVER_SYMBOL",
@@ -170,6 +176,7 @@
         "RULE_SCH_WIRE_OVERLAP",
         "RULE_SCH_WIRE_OVER_SYMBOL",
         "RULE_SCH_WIRE_SPACING",
+        "RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE",
         "RULE_SCH_CROSSING_BUDGET"
       ],
       "verify": [

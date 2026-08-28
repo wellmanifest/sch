@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.6.0
+
+- `RULE_SCH_CONNECTOR_ESCAPE_CLEARANCE` rozdziela margines czytelności przy
+  złączach od elektrycznej `RULE_PIN_WIRE_GAP`. Krótki odcinek kończący się na
+  własnym pinie pozostaje dozwolony, ale nieincydentny pień nie może przeciskać
+  się pomiędzy punktami gęstego złącza.
+- Profil domyślny wymaga 2,54 mm, czyli jednego kroku siatki, i wybiera złącza
+  przez konfigurowalny `connector_pattern`. Granica progu jest dozwolona.
+- `reroute_wire` może zamknąć nową regułę wyłącznie przy zachowanej netliście i
+  bez regresji stylu; samo zwiększenie globalnego clearance nie jest dowodem.
+
 ## 1.5.0
 
 - `collapse_redundant_labels` zostawia po jednej etykiecie nazwy na fizyczny
