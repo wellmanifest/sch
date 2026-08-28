@@ -3,7 +3,7 @@
   "schema": "wellmanifest.dsl/manifest/v1",
   "id": "wellmanifest.sch",
   "name": "Schematic Readability Contract Standard",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "status": "stable",
   "purpose": "Mierzalny kontrakt czytelności schematu: prezentacja sieci, ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
   "domain": "electronic-design-automation",
@@ -73,7 +73,7 @@
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:425fbbdd05b63576f93a6b7e8117b0d8792d1f955aa1e014637fc9c9b6fcee76"
+      "digest": "sha256:36ed6876126703e91c4c547a6cb98e6c19df53d34267c66a2547fbcf5ff9bd48"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",

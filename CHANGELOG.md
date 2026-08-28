@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.7.1
+
+- Wskazówka do `collapse_redundant_labels`: etykieta trzymająca wolny koniec
+  przewodu jest terminalem, nie powtórzeniem, i nie wolno jej usunąć. Kryterium
+  bierzemy od `RULE_SCH_DANGLING_WIRE`, zamiast definiować je drugi raz.
+- Zapisane wprost, bo pomiar na panel9 pokazał, że identyczna netlista **nie
+  jest** dowodem poprawności tej operacji: usunięcie dwóch terminali przy
+  enkoderze zostawiło netlistę bez zmian i dwa zwisające przewody. Kandydat musi
+  przejść porównanie netlisty **i** regresję stylu schematu.
+- Bez zmian w słowniku reguł.
+
 ## 1.7.0
 
 - `RULE_SCH_DANGLING_WIRE` wykrywa puste ogonki i gałęzie przewodów, które nie
