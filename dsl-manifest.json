@@ -48,12 +48,12 @@
     {
       "path": "README.md",
       "role": "documentation",
-      "digest": "sha256:03bc84b31b2fa7e947259e88c4ffb4b5083bac514d3617bf5485a7c408720709"
+      "digest": "sha256:23b2d1b8f4ad87a6a0167259ba904acb1a7ce25ae46b8b96ab8f20ae86fdeaf9"
     },
     {
       "path": "examples/default.json",
       "role": "profile",
-      "digest": "sha256:6ab455985da1ba58c64b2a4b9ef5ed6bbf5167201cf8d5c633570774efc049ab"
+      "digest": "sha256:a1b165d989709b075b9b39dbeb715e5ed89145b096f1a1173e4b824e85d09703"
     },
     {
       "path": "examples/invalid-unknown-operation.json",
@@ -68,22 +68,22 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:28d349a70929b24fec18a63f68b714d6907b643b8c736c0e230fc05480b9b1db"
+      "digest": "sha256:d219132984c9aed7dfea2394058370124bd58a36d8ae6a489b66d2e26d32ebbf"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:ed6a9f72f04a6469092c16166c1670095a3cb46df1562d92e4a871b8ad7141ff"
+      "digest": "sha256:4baa509da8a765bad30872294f364e20b46ea4693397b9ea74740dc4beb75c8c"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:dded13963fc1accbed1dd1283a21a09ed150e805acf5e458989a48bdbbcdaf23"
+      "digest": "sha256:1b4dcd9b28a12f1d7d7b36c2c99fafaa8d78e6962392be4570cc0f2e2d53409a"
     },
     {
       "path": "schemas/sch-style.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:58632f23c0e1402f0602abdc080329dcd1f544dbd22801af0618f9b30eff1872"
+      "digest": "sha256:d9a69669e42dd8e61e1a8af462470ce52a03a54315657ab7f97c67058650561a"
     }
   ],
   "namespaces": [

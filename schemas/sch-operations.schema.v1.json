@@ -42,7 +42,8 @@
             "snap_to_common_grid",
             "reroute_wire",
             "drop_redundant_wire",
-            "move_label"
+            "move_label",
+            "draw_shared_rail"
           ]
         },
         "scope": {

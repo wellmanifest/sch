@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/standard/v1",
   "id": "wellmanifest/sch",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "title": "Schematic Readability Contract Standard",
   "status": "canonical",
   "standardOwner": "wellmanifest",
@@ -79,6 +79,12 @@
       "scope": "schematic",
       "default_severity": "advisory",
       "measures": "Wielopunktowe sieci sygnałowe pokazane wyłącznie powtórzoną etykietą globalną, bez żadnego widocznego odcinka przewodu."
+    },
+    {
+      "id": "RULE_SCH_SHARED_RAIL_PRESENTATION",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Skupiska terminali tej samej szyny pokazane powtórzonymi etykietami globalnymi zamiast widocznym wspólnym pniem i krótkimi odnogami."
     },
     {
       "id": "RULE_SCH_CROSSING_BUDGET",
@@ -201,6 +207,21 @@
       ],
       "reversible": true,
       "why": "Nakładający się tekst jest nie do odczytania, a etykieta w tym schemacie jest połączeniem, więc jej kotwica musi zostać na pinie."
+    },
+    {
+      "id": "draw_shared_rail",
+      "scope": "schematic",
+      "entity": "wire",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_SHARED_RAIL_PRESENTATION"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "W regularnym skupisku elementów wspólny pień szyny z krótkimi odnogami pokazuje połączenie wzrokiem; powtarzanie tej samej etykiety globalnej przy każdym terminalu zmusza do czytania nazw zamiast śledzenia topologii."
     }
   ],
   "changes": [

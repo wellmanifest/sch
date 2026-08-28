@@ -80,6 +80,21 @@
       ],
       "reversible": true,
       "why": "Nakładający się tekst jest nie do odczytania, a etykieta w tym schemacie jest połączeniem, więc jej kotwica musi zostać na pinie."
+    },
+    {
+      "id": "draw_shared_rail",
+      "scope": "schematic",
+      "entity": "wire",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_SHARED_RAIL_PRESENTATION"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "W regularnym skupisku elementów wspólny pień szyny z krótkimi odnogami pokazuje połączenie wzrokiem; powtarzanie tej samej etykiety globalnej przy każdym terminalu zmusza do czytania nazw zamiast śledzenia topologii."
     }
   ]
 }

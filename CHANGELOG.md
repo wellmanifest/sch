@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.0
+
+- `RULE_SCH_SHARED_RAIL_PRESENTATION` mierzy skupiska terminali tej samej szyny,
+  które są pokazane wyłącznie powtórzonymi etykietami globalnymi. W regularnej
+  macierzy elementów wspólny pień z krótkimi odnogami pokazuje topologię lepiej
+  niż kilkanaście napisów `GND`.
+- `draw_shared_rail` zastępuje etykiety w jednym skupisku wspólną szyną bez
+  zmiany łączności. Operacja obowiązkowo przechodzi `connectivity_preserved` i
+  bramkę braku regresji czytelności.
+- Reguła nie narzuca jednego symbolu zasilania dla całego arkusza. Odległe,
+  niezależne bloki mogą używać osobnych symboli; wadą jest tekstowa prezentacja
+  gęstego, funkcjonalnie wspólnego skupiska.
+
 ## 1.3.1
 
 - `reroute_wire` niesie teraz zmierzone ostrzeżenie: przy gęstym rozmieszczeniu

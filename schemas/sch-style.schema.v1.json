@@ -119,6 +119,31 @@
             }
           }
         },
+        "RULE_SCH_SHARED_RAIL_PRESENTATION": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "rail_pattern": {
+              "type": "string",
+              "format": "regex"
+            },
+            "min_anchors": {
+              "type": "integer",
+              "minimum": 3
+            },
+            "cluster_gap_mm": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "max_label_only_groups": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
         "RULE_SCH_CROSSING_BUDGET": {
           "allOf": [
             {
