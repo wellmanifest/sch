@@ -3,7 +3,7 @@
   "schema": "wellmanifest.dsl/manifest/v1",
   "id": "wellmanifest.sch",
   "name": "Schematic Readability Contract Standard",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "status": "stable",
   "purpose": "Mierzalny kontrakt czytelności schematu: prezentacja sieci, ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
   "domain": "electronic-design-automation",
@@ -28,7 +28,7 @@
   "source": {
     "repository": "https://github.com/wellmanifest/sch",
     "path": "sch-standard.json",
-    "declaredVersion": "1.3.0",
+    "declaredVersion": "1.5.0",
     "canonical": "json-ast",
     "mediaType": "application/json",
     "selectors": [
@@ -48,12 +48,12 @@
     {
       "path": "README.md",
       "role": "documentation",
-      "digest": "sha256:23b2d1b8f4ad87a6a0167259ba904acb1a7ce25ae46b8b96ab8f20ae86fdeaf9"
+      "digest": "sha256:fedc72668849da8794e0293135a1a0909529f36d4c9324634c348f76e03e513f"
     },
     {
       "path": "examples/default.json",
       "role": "profile",
-      "digest": "sha256:a1b165d989709b075b9b39dbeb715e5ed89145b096f1a1173e4b824e85d09703"
+      "digest": "sha256:b5eccc1eeaeb20d357e1567c1b33201f84b983901b41ec92c03e601b5a824657"
     },
     {
       "path": "examples/invalid-unknown-operation.json",
@@ -68,17 +68,17 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:d219132984c9aed7dfea2394058370124bd58a36d8ae6a489b66d2e26d32ebbf"
+      "digest": "sha256:4bd2c60e86ffaa672a42345f8e72df2b9f2981cb8555182c82122e92e6ec9831"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:4baa509da8a765bad30872294f364e20b46ea4693397b9ea74740dc4beb75c8c"
+      "digest": "sha256:7e030d87fe626ad917e5db21f22a32a65cf5be26ef8e52c7c41b83c8911d5f55"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:1b4dcd9b28a12f1d7d7b36c2c99fafaa8d78e6962392be4570cc0f2e2d53409a"
+      "digest": "sha256:208eed3f3af1168ca926a47995df588a1e0437792dc2c0c95ce3b9981e99eca8"
     },
     {
       "path": "schemas/sch-style.schema.v1.json",

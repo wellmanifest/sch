@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.5.0
+
+- `collapse_redundant_labels` zostawia po jednej etykiecie nazwy na fizyczny
+  komponent przewodów. Nie usuwa powtórzeń globalnie i odmawia działania, gdy
+  widoczny komponent zawiera różne nazwy.
+- Odnoga dochodząca do środka pnia jest wspólną topologią dla oka, ale sama
+  kropka `junction` nie wystarcza do zachowania netlisty KiCada. Przed usunięciem
+  etykiety operacja rozcina pień, aby odcinki miały wspólne końce; identyczna
+  netlista pozostaje obowiązkowym dowodem, nie założeniem.
+- Manifest DSL deklaruje tę samą wersję co źródło kanoniczne i profil.
+
 ## 1.4.0
 
 - `RULE_SCH_SHARED_RAIL_PRESENTATION` mierzy skupiska terminali tej samej szyny,

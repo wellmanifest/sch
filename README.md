@@ -45,8 +45,13 @@ pień GND z krótkimi odnogami i jednym symbolem szyny. Nie ogranicza globalnej
 liczby terminali ani nie każe scalać odległych bloków. Szczegóły:
 [`docs/POWER-RAIL-PRESENTATION.md`](docs/POWER-RAIL-PRESENTATION.md).
 
+Po narysowaniu wspólnego przebiegu `collapse_redundant_labels` może zostawić po
+jednej etykiecie nazwy na fizyczny komponent. Najpierw rozcina pień w punktach T;
+sama widoczna kropka nie jest dowodem łączności. Komponenty z różnymi nazwami są
+pomijane, a identyczność netlisty jest obowiązkową bramką kandydata.
+
 Cztery reguły blokujące opisują rzeczy **niejednoznaczne**: dwie linie jedna na
-drugiej wyglądają jak jedna, przewód przez pin wygląda na połączony. Cztery
+drugiej wyglądają jak jedna, przewód przez pin wygląda na połączony. Reguły
 doradcze opisują rzeczy **męczące**: da się przeczytać, tylko trudniej.
 
 ## Skąd te progi

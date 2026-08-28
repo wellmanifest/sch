@@ -43,7 +43,8 @@
             "reroute_wire",
             "drop_redundant_wire",
             "move_label",
-            "draw_shared_rail"
+            "draw_shared_rail",
+            "collapse_redundant_labels"
           ]
         },
         "scope": {

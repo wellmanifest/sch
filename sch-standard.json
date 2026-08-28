@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/standard/v1",
   "id": "wellmanifest/sch",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "title": "Schematic Readability Contract Standard",
   "status": "canonical",
   "standardOwner": "wellmanifest",
@@ -222,6 +222,21 @@
       ],
       "reversible": true,
       "why": "W regularnym skupisku elementów wspólny pień szyny z krótkimi odnogami pokazuje połączenie wzrokiem; powtarzanie tej samej etykiety globalnej przy każdym terminalu zmusza do czytania nazw zamiast śledzenia topologii."
+    },
+    {
+      "id": "collapse_redundant_labels",
+      "scope": "schematic",
+      "entity": "label",
+      "changes": "drawing",
+      "clears": [
+        "RULE_SCH_SHARED_RAIL_PRESENTATION"
+      ],
+      "verify": [
+        "connectivity_preserved",
+        "style_no_regression"
+      ],
+      "reversible": true,
+      "why": "Powtórzona etykieta jest redundantna dopiero w tym samym fizycznym komponencie przewodów. Operacja najpierw rozcina pień w punktach T, aby odnogi miały z nim wspólne końce, zostawia po jednej etykiecie nazwy na komponent i odmawia działania na komponencie zawierającym różne nazwy."
     }
   ],
   "changes": [

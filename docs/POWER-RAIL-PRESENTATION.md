@@ -27,7 +27,13 @@ które są blisko siebie i nie mają żadnego widocznego wspólnego pnia.
 
 ## Bezpieczna naprawa
 
-`draw_shared_rail` najpierw rysuje pień i odnogi do istniejących kotwic, następnie
-usuwa zastąpione etykiety z tej jednej grupy. Nie scala przewodów na podstawie
-samego nakładania. Kandydat musi wykazać identyczną netlistę przed i po zmianie;
-w przeciwnym razie poprawa prezentacji jest zmianą układu i zostaje odrzucona.
+`draw_shared_rail` najpierw rysuje pień i odnogi do istniejących kotwic.
+`collapse_redundant_labels` wykonuje drugi, osobny krok: rozcina pień w punktach
+T, aby odnogi i pień miały wspólne końce, a następnie zostawia jedną etykietę
+nazwy na każdy fizyczny komponent. Sama kropka `junction` jest oznaczeniem dla
+czytelnika i nie może być jedynym dowodem elektrycznego połączenia.
+
+Operacja nie scala na podstawie samego nakładania, nie łączy zwykłych skrzyżowań
+i pomija komponent zawierający różne nazwy. Kandydat musi wykazać identyczną
+netlistę przed i po zmianie; w przeciwnym razie poprawa prezentacji jest zmianą
+układu i zostaje odrzucona.
