@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0
+
+- `RULE_SCH_NET_PRESENTATION` mierzy wielopunktowe sieci sygnałowe pokazane
+  wyłącznie powtórzonymi etykietami globalnymi. Netlista może być poprawna,
+  choć na rysunku nie widać przebiegu połączenia — standard nazywa teraz ten
+  dług zamiast mylić go z brakiem łączności.
+- `draw_net_wires` jawnie zamyka tę regułę. Profil określa minimalną liczbę
+  kotwic, dopuszczalny budżet sieci label-only i wzorzec wyłączeń dla szyn.
+- Ujednolicono wersję pakietu w `VERSION`, źródle kanonicznym, profilu i
+  manifeście DSL; mapowanie do `wellmanifest/pcb` wskazuje 1.9.0.
+
 ## 1.2.0
 
 - `drop_redundant_wire`: odcinek leżący **w całości** na innym odcinku tej samej

@@ -1,7 +1,7 @@
 {
   "schema_id": "wellmanifest.sch/standard/v1",
   "id": "wellmanifest/sch",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "title": "Schematic Readability Contract Standard",
   "status": "canonical",
   "standardOwner": "wellmanifest",
@@ -75,6 +75,12 @@
       "measures": "Etykiety nie nachodzą na siebie; nakładający się tekst jest nie do odczytania."
     },
     {
+      "id": "RULE_SCH_NET_PRESENTATION",
+      "scope": "schematic",
+      "default_severity": "advisory",
+      "measures": "Wielopunktowe sieci sygnałowe pokazane wyłącznie powtórzoną etykietą globalną, bez żadnego widocznego odcinka przewodu."
+    },
+    {
       "id": "RULE_SCH_CROSSING_BUDGET",
       "scope": "schematic",
       "default_severity": "advisory",
@@ -122,6 +128,7 @@
       "entity": "wire",
       "changes": "drawing",
       "clears": [
+        "RULE_SCH_NET_PRESENTATION",
         "RULE_SCH_WIRE_ORTHOGONAL",
         "RULE_SCH_WIRE_OVER_SYMBOL",
         "RULE_SCH_WIRE_OVER_PIN"

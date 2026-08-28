@@ -29,8 +29,14 @@ adoptera do przyjęcia obu naraz.
 | `RULE_SCH_WIRE_OVER_PIN` | blocking | przewód przechodzący przez pin obcej sieci |
 | `RULE_SCH_WIRE_SPACING` | advisory | równoległe przewody bliżej niż krok siatki |
 | `RULE_SCH_LABEL_SPACING` | advisory | nachodzące na siebie etykiety |
+| `RULE_SCH_NET_PRESENTATION` | advisory | wielopunktowe sieci sygnałowe pokazane wyłącznie etykietami |
 | `RULE_SCH_CROSSING_BUDGET` | advisory | skrzyżowania ponad budżet na sieć |
 | `RULE_SCH_COMMON_GRID` | advisory | piny i końce przewodów na kilku różnych siatkach |
+
+Nowa reguła prezentacji odróżnia poprawność elektryczną od czytelności: globalne
+etykiety nadal tworzą jedną sieć w netliście, ale projekt może wymagać pokazania
+przynajmniej fragmentu sieci sygnałowej przewodem. Szyny zasilania można wyłączyć
+przez `exclude_pattern`, a próg ustawia `max_label_only_nets`.
 
 Cztery reguły blokujące opisują rzeczy **niejednoznaczne**: dwie linie jedna na
 drugiej wyglądają jak jedna, przewód przez pin wygląda na połączony. Cztery
@@ -58,6 +64,7 @@ dług, który zostaje po automatycznym trasowaniu.
   "profile": "panel9",
   "rules": {
     "RULE_SCH_WIRE_SPACING": {"min_mm": 2.54},
+    "RULE_SCH_NET_PRESENTATION": {"max_label_only_nets": 0},
     "RULE_SCH_CROSSING_BUDGET": {"severity": "advisory", "max_per_net": 8}
   }
 }

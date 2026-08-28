@@ -7,6 +7,7 @@
       "entity": "wire",
       "changes": "drawing",
       "clears": [
+        "RULE_SCH_NET_PRESENTATION",
         "RULE_SCH_WIRE_ORTHOGONAL",
         "RULE_SCH_WIRE_OVER_SYMBOL",
         "RULE_SCH_WIRE_OVER_PIN"

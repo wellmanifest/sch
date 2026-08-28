@@ -98,6 +98,27 @@
             }
           }
         },
+        "RULE_SCH_NET_PRESENTATION": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "min_anchors": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "max_label_only_nets": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "exclude_pattern": {
+              "type": "string",
+              "format": "regex"
+            }
+          }
+        },
         "RULE_SCH_CROSSING_BUDGET": {
           "allOf": [
             {

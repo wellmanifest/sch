@@ -3,9 +3,9 @@
   "schema": "wellmanifest.dsl/manifest/v1",
   "id": "wellmanifest.sch",
   "name": "Schematic Readability Contract Standard",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "status": "stable",
-  "purpose": "Mierzalny kontrakt czytelności schematu: ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
+  "purpose": "Mierzalny kontrakt czytelności schematu: prezentacja sieci, ortogonalność, odstępy równoległych przewodów, brak nakładania, budżet skrzyżowań, wspólna siatka i rozmieszczenie etykiet.",
   "domain": "electronic-design-automation",
   "owners": [
     {
@@ -28,7 +28,7 @@
   "source": {
     "repository": "https://github.com/wellmanifest/sch",
     "path": "sch-standard.json",
-    "declaredVersion": "1.0.0",
+    "declaredVersion": "1.3.0",
     "canonical": "json-ast",
     "mediaType": "application/json",
     "selectors": [
@@ -48,12 +48,12 @@
     {
       "path": "README.md",
       "role": "documentation",
-      "digest": "sha256:18d5f1149c6e53377eb5c778ba7da1371e604f0b965c1fafc6c87d95e558d007"
+      "digest": "sha256:03bc84b31b2fa7e947259e88c4ffb4b5083bac514d3617bf5485a7c408720709"
     },
     {
       "path": "examples/default.json",
       "role": "profile",
-      "digest": "sha256:27ac460798aec669113fb5f3778a07168b7c969136b38b252716b652eba8c8f0"
+      "digest": "sha256:6ab455985da1ba58c64b2a4b9ef5ed6bbf5167201cf8d5c633570774efc049ab"
     },
     {
       "path": "examples/invalid-unknown-operation.json",
@@ -68,12 +68,12 @@
     {
       "path": "examples/operations.json",
       "role": "example",
-      "digest": "sha256:927507371da517118cc9bd1b7c3e26b3e9e473fc6b22b8901cccd4b7376f9b9e"
+      "digest": "sha256:b8bd0d0d930b8175ac339576878b995f8d2f59e0ddf668aaffa82e7c76730c73"
     },
     {
       "path": "sch-standard.json",
       "role": "normative-source",
-      "digest": "sha256:a5343511d1d1b9957bb572ad159af0f8be1680b76f42cf6604750ec681a11446"
+      "digest": "sha256:bd1e223e8136fcbd3f2af00a193835981b058649f60ab7b627c703f6318ef5f5"
     },
     {
       "path": "schemas/sch-operations.schema.v1.json",
@@ -83,7 +83,7 @@
     {
       "path": "schemas/sch-style.schema.v1.json",
       "role": "schema",
-      "digest": "sha256:59b05a2f1ad7b2d1f793355777b0210d6b6b0297383d8f88ffb9a2a6dd88b190"
+      "digest": "sha256:58632f23c0e1402f0602abdc080329dcd1f544dbd22801af0618f9b30eff1872"
     }
   ],
   "namespaces": [
@@ -183,7 +183,7 @@
     },
     {
       "standard": "wellmanifest.pcb",
-      "version": "1.3.0",
+      "version": "1.9.0",
       "relation": "compatible-with",
       "uri": "https://github.com/wellmanifest/pcb"
     }
